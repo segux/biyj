@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Map functionality
     window.openMap = function(location) {
-        const address = location === 'ceremonia' ? CONFIG.CEREMONY_ADDRESS : CONFIG.CELEBRATION_ADDRESS;
+        const address = CONFIG.CEREMONY_ADDRESS; // Mismo lugar para todo
         const encodedAddress = encodeURIComponent(address);
         const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
         
