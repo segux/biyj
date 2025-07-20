@@ -49,6 +49,23 @@ body {
     animation: fadeInUp 1s ease-out;
 }
 
+.wedding-logo {
+    margin-bottom: 48px;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.wedding-logo img {
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.wedding-logo img:hover {
+    transform: scale(1.05);
+}
+
 .couple-names {
     font-family: 'Playfair Display', serif;
     font-size: clamp(3.5rem, 8vw, 6rem);
@@ -351,6 +368,14 @@ body {
     
     .hero {
         padding: 40px 0;
+    }
+    
+    .wedding-logo {
+        margin-bottom: 32px;
+    }
+    
+    .wedding-logo img {
+        max-width: 150px;
     }
     
     .couple-names {
