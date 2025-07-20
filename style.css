@@ -7,469 +7,430 @@
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.6;
-    color: #2c2c2c;
-    background: linear-gradient(135deg, #f8f6f3 0%, #faf9f7 100%);
+    color: #1a1a1a;
+    background: #fefefe;
+    scroll-behavior: smooth;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
-/* Hero Section */
+/* Hero Section - Elegante y minimalista */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(rgba(139, 69, 19, 0.85), rgba(101, 67, 33, 0.85)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="elegant" patternUnits="userSpaceOnUse" width="40" height="40"><circle cx="20" cy="20" r="1" fill="%23d4af37" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23elegant)"/></svg>') center/cover;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     position: relative;
+    overflow: hidden;
 }
 
-.hero-content {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 50px 40px;
-    border-radius: 8px;
-    box-shadow: 0 20px 60px rgba(101, 67, 33, 0.2);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-}
-
-.couple-names {
-    font-family: 'Dancing Script', cursive;
-    font-size: 4rem;
-    font-weight: 700;
-    color: #8b4513;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.1);
-    letter-spacing: 2px;
-}
-
-.wedding-date {
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: #654321;
-    margin-bottom: 8px;
-    letter-spacing: 1px;
-}
-
-.wedding-time {
-    font-size: 1.1rem;
-    color: #8b7355;
-    margin-bottom: 25px;
-    font-weight: 300;
-}
-
-.heart-icon {
-    font-size: 1.8rem;
-    color: #d4af37;
-    margin: 25px 0;
-    animation: gentleGlow 3s ease-in-out infinite;
-}
-
-@keyframes gentleGlow {
-    0%, 100% { opacity: 0.8; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.05); }
-}
-
-.invitation-text {
-    font-size: 1.1rem;
-    color: #666;
-    font-style: italic;
-    margin-top: 20px;
-    font-weight: 300;
-}
-
-/* Main sections */
-section {
-    padding: 70px 0;
-}
-
-h2 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.8rem;
-    color: #8b4513;
-    text-align: center;
-    margin-bottom: 50px;
-    font-weight: 400;
-}
-
-h2 i {
-    margin-right: 15px;
-    color: #d4af37;
-}
-
-/* Info cards */
-.info-card {
-    background: white;
-    padding: 35px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.08);
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    transition: all 0.3s ease;
-}
-
-.info-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 35px rgba(139, 69, 19, 0.12);
-}
-
-.info-card h3 {
-    font-size: 1.4rem;
-    color: #654321;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    font-weight: 600;
-}
-
-.info-card h3 i {
-    margin-right: 12px;
-    color: #d4af37;
-    font-size: 1.2rem;
-}
-
-.info-card p {
-    margin-bottom: 10px;
-    color: #555;
-    line-height: 1.7;
-}
-
-.info-card p strong {
-    color: #8b4513;
-}
-
-.map-btn {
-    background: linear-gradient(45deg, #d4af37, #b8941f);
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    border-radius: 6px;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 20px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-}
-
-.map-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
-    background: linear-gradient(45deg, #b8941f, #d4af37);
-}
-
-/* RSVP Section - Priority styling */
-.rsvp-section {
-    background: linear-gradient(135deg, #8b4513, #654321);
-    color: white;
-    text-align: center;
-    position: relative;
-}
-
-.rsvp-section::before {
+.hero::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="rsvp-pattern" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="0.5" fill="%23d4af37" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23rsvp-pattern)"/></svg>');
+    background: radial-gradient(circle at 30% 20%, rgba(0, 0, 0, 0.02) 0%, transparent 50%);
 }
 
-.rsvp-section .container {
+.hero-content {
+    text-align: center;
     position: relative;
     z-index: 2;
+    max-width: 600px;
+    animation: fadeInUp 1s ease-out;
 }
 
-.rsvp-section h2 {
-    color: white;
-    margin-bottom: 25px;
+.couple-names {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-weight: 300;
+    color: #1a1a1a;
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
 }
 
-.rsvp-text {
-    font-size: 1.2rem;
-    margin-bottom: 35px;
-    opacity: 0.95;
+.wedding-date {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.wedding-time {
+    font-size: 1rem;
+    color: #999;
+    margin-bottom: 48px;
     font-weight: 300;
 }
 
-.rsvp-btn {
-    display: inline-block;
-    background: #d4af37;
-    color: white;
-    padding: 20px 45px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    margin: 25px 0;
-    letter-spacing: 0.5px;
-    border: 2px solid transparent;
-}
-
-.rsvp-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
-    background: #b8941f;
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-.rsvp-btn i {
-    margin-right: 12px;
-}
-
-.rsvp-note {
-    font-style: italic;
-    opacity: 0.9;
-    margin-top: 20px;
-    font-weight: 300;
-}
-
-/* Timeline */
-.timeline {
+.heart-divider {
+    width: 60px;
+    height: 1px;
+    background: #ddd;
+    margin: 48px auto;
     position: relative;
-    max-width: 800px;
+}
+
+.heart-divider::after {
+    content: '♡';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fefefe;
+    padding: 0 16px;
+    color: #ccc;
+    font-size: 20px;
+}
+
+.invitation-text {
+    font-size: 1.125rem;
+    color: #666;
+    font-weight: 300;
+    line-height: 1.7;
+    margin-top: 24px;
+}
+
+/* CTA Section - Prioridad máxima */
+.cta-section {
+    padding: 80px 0;
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 24px;
+    font-family: 'Playfair Display', serif;
+}
+
+.cta-subtitle {
+    font-size: 1.125rem;
+    color: #ccc;
+    margin-bottom: 48px;
+    font-weight: 300;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.btn-primary {
+    background: white;
+    color: #1a1a1a;
+    padding: 18px 36px;
+    border: none;
+    border-radius: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-primary:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    padding: 18px 36px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-secondary:hover {
+    border-color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cta-note {
+    font-size: 0.875rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* Event Details - Grid limpio */
+.event-details {
+    padding: 100px 0;
+    background: #fafafa;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 80px;
+    color: #1a1a1a;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 48px;
+    margin-bottom: 80px;
+}
+
+.detail-card {
+    background: white;
+    padding: 48px 32px;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.detail-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.detail-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 50%;
+    color: #666;
+    font-size: 20px;
+}
+
+.detail-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+}
+
+.detail-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.detail-card .highlight {
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 16px;
+    padding: 8px 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.map-link:hover {
+    border-bottom-color: #1a1a1a;
+}
+
+/* Timeline - Minimalista */
+.schedule-section {
+    padding: 100px 0;
+    background: white;
+}
+
+.timeline {
+    max-width: 600px;
     margin: 0 auto;
 }
 
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, #d4af37, #8b4513);
-    border-radius: 1px;
-}
-
 .timeline-item {
-    position: relative;
-    margin-bottom: 35px;
-    padding-left: 65px;
+    display: flex;
+    gap: 32px;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid #f0f0f0;
 }
 
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: 11px;
-    top: 8px;
-    width: 18px;
-    height: 18px;
-    background: #d4af37;
-    border-radius: 50%;
-    border: 3px solid white;
-    box-shadow: 0 0 0 2px #d4af37;
+.timeline-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .timeline-time {
-    font-weight: 600;
-    color: #8b4513;
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-    letter-spacing: 0.5px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    min-width: 120px;
+    text-align: right;
 }
 
 .timeline-content h4 {
-    color: #654321;
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+    font-size: 1.125rem;
     font-weight: 600;
+    margin-bottom: 8px;
+    color: #1a1a1a;
 }
 
 .timeline-content p {
     color: #666;
-    font-weight: 300;
+    font-size: 0.95rem;
 }
 
-/* Music Section */
-.music-section {
-    background: #faf9f7;
-    text-align: center;
-    border-top: 1px solid rgba(212, 175, 55, 0.1);
-}
-
-.music-text {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 35px;
-    font-weight: 300;
-}
-
-.music-btn {
-    display: inline-block;
-    background: #1db954;
-    color: white;
-    padding: 16px 40px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(29, 185, 84, 0.25);
-    letter-spacing: 0.5px;
-}
-
-.music-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(29, 185, 84, 0.35);
-    background: #1ed760;
-}
-
-.music-btn i {
-    margin-right: 10px;
-}
-
-.music-note {
-    margin-top: 25px;
-    color: #666;
-    font-style: italic;
-    font-weight: 300;
-}
-
-/* Footer */
+/* Footer minimalista */
 .footer {
-    background: linear-gradient(135deg, #654321, #8b4513);
+    padding: 60px 0;
+    background: #1a1a1a;
     color: white;
     text-align: center;
-    padding: 50px 0;
 }
 
-.footer-text {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    font-weight: 400;
+.footer-content {
+    max-width: 400px;
+    margin: 0 auto;
 }
 
-.footer-hearts {
-    font-size: 1.4rem;
-    margin: 25px 0;
-    color: #d4af37;
-}
-
-.footer-hearts i {
-    margin: 0 15px;
-    animation: gentleGlow 3s ease-in-out infinite;
-}
-
-.footer-hearts i:nth-child(2) {
-    animation-delay: 0.5s;
-}
-
-.footer-hearts i:nth-child(3) {
-    animation-delay: 1s;
+.footer-names {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 16px;
 }
 
 .footer-date {
-    font-size: 1.2rem;
-    font-weight: 300;
-    letter-spacing: 3px;
-    opacity: 0.9;
+    color: #999;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
-    .hero-content {
-        padding: 35px 25px;
-        margin: 20px;
+    .container {
+        padding: 0 20px;
+    }
+    
+    .hero {
+        padding: 40px 0;
     }
     
     .couple-names {
-        font-size: 3rem;
+        font-size: clamp(2.5rem, 12vw, 4rem);
+        margin-bottom: 24px;
     }
     
-    .wedding-date {
-        font-size: 1.2rem;
+    .cta-section {
+        padding: 60px 0;
     }
     
-    h2 {
-        font-size: 2.2rem;
+    .cta-title {
+        font-size: 2rem;
     }
     
-    .container {
-        padding: 0 15px;
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
     }
     
-    .info-card {
-        padding: 25px;
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
     }
     
-    .timeline::before {
-        left: 15px;
+    .event-details,
+    .schedule-section {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 60px;
+    }
+    
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 60px;
+    }
+    
+    .detail-card {
+        padding: 32px 24px;
     }
     
     .timeline-item {
-        padding-left: 55px;
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
     }
     
-    .timeline-item::before {
-        left: 6px;
-        width: 16px;
-        height: 16px;
-    }
-    
-    .rsvp-btn {
-        padding: 16px 35px;
-        font-size: 1.1rem;
+    .timeline-time {
+        text-align: center;
+        min-width: auto;
     }
 }
 
 @media (max-width: 480px) {
-    .couple-names {
-        font-size: 2.5rem;
+    .container {
+        padding: 0 16px;
     }
     
-    .hero-content {
-        padding: 30px 20px;
+    .btn-primary,
+    .btn-secondary {
+        padding: 16px 24px;
+        font-size: 0.875rem;
     }
     
-    section {
-        padding: 50px 0;
-    }
-    
-    .info-card {
-        padding: 20px;
-    }
-    
-    .rsvp-btn {
-        padding: 14px 30px;
-        font-size: 1rem;
-    }
-    
-    h2 {
-        font-size: 2rem;
+    .detail-card {
+        padding: 24px 20px;
     }
 }
 
-/* Animations and effects */
-@media (prefers-reduced-motion: no-preference) {
-    .info-card, .timeline-item {
-        animation: fadeInUp 0.8s ease-out;
-    }
-    
-    .info-card:nth-child(even) {
-        animation-delay: 0.2s;
-    }
-    
-    .timeline-item:nth-child(odd) {
-        animation-delay: 0.1s;
-    }
-}
-
+/* Animaciones sutiles */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
     }
     to {
         opacity: 1;
@@ -477,15 +438,45 @@ h2 i {
     }
 }
 
+.detail-card,
+.timeline-item {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Loading states para los botones */
+.btn-loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.btn-loading::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 8px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Focus states para accesibilidad */
+.btn-primary:focus,
+.btn-secondary:focus,
+.map-link:focus {
+    outline: 2px solid #1a1a1a;
+    outline-offset: 2px;
+}
+
 /* Print styles */
 @media print {
-    .hero {
-        min-height: auto;
-        background: white;
-        color: black;
-    }
-    
-    .rsvp-section {
+    .cta-section {
         background: white;
         color: black;
     }
@@ -494,24 +485,11 @@ h2 i {
         background: white;
         color: black;
     }
-}
-
-/* Additional elegant touches */
-.info-card p em {
-    color: #8b7355;
-    font-style: italic;
-}
-
-.timeline-content {
-    background: rgba(248, 246, 243, 0.5);
-    padding: 20px;
-    border-radius: 6px;
-    border-left: 3px solid #d4af37;
-}
-
-/* Subtle hover effects */
-.timeline-item:hover .timeline-content {
-    background: rgba(248, 246, 243, 0.8);
-    transform: translateX(5px);
-    transition: all 0.3s ease;
+    
+    .btn-primary,
+    .btn-secondary {
+        border: 1px solid black;
+        background: white;
+        color: black;
+    }
 }

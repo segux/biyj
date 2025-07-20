@@ -1,120 +1,151 @@
 
-// Wedding website functionality
+// Wedding landing page - Professional JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     
-    // RSVP Button functionality
+    // Configuration - Replace with actual URLs
+    const CONFIG = {
+        GOOGLE_FORM_URL: 'https://forms.google.com/your-form-id', // Replace with actual form
+        SPOTIFY_PLAYLIST_URL: 'https://open.spotify.com/playlist/your-playlist-id', // Replace with actual playlist
+        CEREMONY_ADDRESS: 'Iglesia de San Valentín, Calle de los Enamorados, 123, Madrid, España',
+        CELEBRATION_ADDRESS: 'Restaurante El Jardín del Amor, Plaza de los Novios, 45, Madrid, España'
+    };
+    
+    // DOM Elements
     const rsvpBtn = document.getElementById('rsvp-btn');
     const musicBtn = document.getElementById('music-btn');
     
-    // Replace these URLs with the actual Google Form and Spotify playlist links
-    const GOOGLE_FORM_URL = 'https://forms.google.com/your-form-id'; // Replace with actual form URL
-    const SPOTIFY_PLAYLIST_URL = 'https://open.spotify.com/playlist/your-playlist-id'; // Replace with actual playlist URL
-    
-    // RSVP button click handler
+    // RSVP Button Handler
     if (rsvpBtn) {
-        rsvpBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Add click animation
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 150);
-            
-            // Open Google Form
-            window.open(GOOGLE_FORM_URL, '_blank');
-            
-            // Show confirmation message
-            showNotification('¡Gracias! Te redirigimos al formulario de confirmación.', 'success');
-        });
-        
-        // Update the href attribute with the actual form URL
-        rsvpBtn.href = GOOGLE_FORM_URL;
+        rsvpBtn.addEventListener('click', handleRSVPClick);
+        rsvpBtn.href = CONFIG.GOOGLE_FORM_URL;
     }
     
-    // Music button click handler
+    // Music Button Handler  
     if (musicBtn) {
-        musicBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Add click animation
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 150);
-            
-            // Open Spotify playlist
-            window.open(SPOTIFY_PLAYLIST_URL, '_blank');
-            
-            // Show confirmation message
-            showNotification('¡Genial! Te redirigimos a la playlist de Spotify.', 'success');
-        });
-        
-        // Update the href attribute with the actual playlist URL
-        musicBtn.href = SPOTIFY_PLAYLIST_URL;
+        musicBtn.addEventListener('click', handleMusicClick);
+        musicBtn.href = CONFIG.SPOTIFY_PLAYLIST_URL;
     }
     
-    // Map button functionality
-    window.openMap = function() {
-        const address = 'Iglesia de San Valentín, Calle de los Enamorados, 123, Madrid, España';
-        const encodedAddress = encodeURIComponent(address);
-        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+    // RSVP Click Handler
+    function handleRSVPClick(e) {
+        e.preventDefault();
         
-        window.open(googleMapsUrl, '_blank');
-        showNotification('Abriendo ubicación en Google Maps...', 'info');
+        // Add loading state
+        addLoadingState(rsvpBtn, 'Abriendo formulario...');
+        
+        // Track interaction
+        trackEvent('rsvp_click');
+        
+        // Open form
+        setTimeout(() => {
+            window.open(CONFIG.GOOGLE_FORM_URL, '_blank');
+            showNotification('Formulario de confirmación abierto', 'success');
+            removeLoadingState(rsvpBtn, '<i class="fas fa-check"></i> Confirmar Asistencia');
+        }, 500);
+    }
+    
+    // Music Click Handler
+    function handleMusicClick(e) {
+        e.preventDefault();
+        
+        // Add loading state
+        addLoadingState(musicBtn, 'Abriendo Spotify...');
+        
+        // Track interaction
+        trackEvent('music_click');
+        
+        // Open playlist
+        setTimeout(() => {
+            window.open(CONFIG.SPOTIFY_PLAYLIST_URL, '_blank');
+            showNotification('Playlist de Spotify abierta', 'success');
+            removeLoadingState(musicBtn, '<i class="fab fa-spotify"></i> Añadir Música');
+        }, 500);
+    }
+    
+    // Map functionality
+    window.openMap = function(location) {
+        const address = location === 'ceremonia' ? CONFIG.CEREMONY_ADDRESS : CONFIG.CELEBRATION_ADDRESS;
+        const encodedAddress = encodeURIComponent(address);
+        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+        
+        // Track interaction
+        trackEvent('map_click', { location });
+        
+        window.open(mapsUrl, '_blank');
+        showNotification('Ubicación abierta en Google Maps', 'info');
     };
+    
+    // Loading state management
+    function addLoadingState(button, text) {
+        button.classList.add('btn-loading');
+        button.innerHTML = text;
+        button.disabled = true;
+    }
+    
+    function removeLoadingState(button, originalHTML) {
+        button.classList.remove('btn-loading');
+        button.innerHTML = originalHTML;
+        button.disabled = false;
+    }
     
     // Notification system
     function showNotification(message, type = 'info') {
         // Remove existing notifications
-        const existingNotifications = document.querySelectorAll('.notification');
-        existingNotifications.forEach(notification => notification.remove());
+        const existing = document.querySelectorAll('.notification');
+        existing.forEach(n => n.remove());
         
-        // Create notification element
+        // Create notification
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
         notification.textContent = message;
         
-        // Add styles
+        // Styling
+        const colors = {
+            success: '#10b981',
+            error: '#ef4444', 
+            info: '#3b82f6'
+        };
+        
         notification.style.cssText = `
             position: fixed;
-            top: 20px;
-            right: 20px;
-            background: ${type === 'success' ? '#4caf50' : type === 'error' ? '#f44336' : '#2196f3'};
+            top: 24px;
+            right: 24px;
+            background: ${colors[type] || colors.info};
             color: white;
-            padding: 15px 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 1000;
+            padding: 16px 24px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            z-index: 10000;
+            font-size: 14px;
             font-weight: 500;
             transform: translateX(100%);
-            transition: transform 0.3s ease;
-            max-width: 300px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 320px;
             word-wrap: break-word;
         `;
         
-        // Add to page
+        // Add to DOM
         document.body.appendChild(notification);
         
         // Animate in
-        setTimeout(() => {
+        requestAnimationFrame(() => {
             notification.style.transform = 'translateX(0)';
-        }, 10);
+        });
         
-        // Remove after 3 seconds
+        // Auto remove
         setTimeout(() => {
             notification.style.transform = 'translateX(100%)';
             setTimeout(() => {
                 if (notification.parentNode) {
-                    notification.parentNode.removeChild(notification);
+                    notification.remove();
                 }
             }, 300);
-        }, 3000);
+        }, 4000);
     }
     
-    // Smooth scrolling for any internal links
+    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
@@ -126,123 +157,125 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add intersection observer for animations
-    if ('IntersectionObserver' in window) {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all cards and timeline items
-        document.querySelectorAll('.info-card, .timeline-item').forEach(el => {
-            observer.observe(el);
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -10% 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+            }
         });
-    }
+    }, observerOptions);
     
-    // Add loading state to buttons
-    function addLoadingState(button, originalText) {
-        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Cargando...';
-        button.disabled = true;
+    // Observe animated elements
+    document.querySelectorAll('.detail-card, .timeline-item').forEach(el => {
+        el.style.animationPlayState = 'paused';
+        observer.observe(el);
+    });
+    
+    // Event tracking (placeholder for analytics)
+    function trackEvent(eventName, properties = {}) {
+        console.log('Event tracked:', eventName, properties);
         
-        setTimeout(() => {
-            button.innerHTML = originalText;
-            button.disabled = false;
-        }, 2000);
+        // Here you would integrate with your analytics service
+        // Example: gtag('event', eventName, properties);
+        // Example: analytics.track(eventName, properties);
     }
     
-    // Copy to clipboard functionality for address
+    // Performance optimization
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+    
+    // Responsive image loading optimization
+    function optimizeImages() {
+        // Placeholder for lazy loading implementation if needed
+        console.log('Images optimized for performance');
+    }
+    
+    // Initialize
+    function init() {
+        console.log('💕 Wedding landing page initialized');
+        console.log('🎉 Ready for Isa & Jose wedding!');
+        
+        // Track page load
+        trackEvent('page_load');
+        
+        // Optimize performance
+        optimizeImages();
+    }
+    
+    // Run initialization
+    init();
+    
+    // Add keyboard shortcuts (Easter egg)
+    document.addEventListener('keydown', function(e) {
+        // Ctrl/Cmd + Enter to quick RSVP
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+            e.preventDefault();
+            if (rsvpBtn) {
+                rsvpBtn.click();
+            }
+        }
+    });
+    
+    // Share functionality (if needed)
+    window.shareWedding = function() {
+        if (navigator.share) {
+            navigator.share({
+                title: 'Boda Isa & Jose - 14 de Febrero 2026',
+                text: 'Nos casamos y queremos celebrarlo contigo',
+                url: window.location.href
+            }).then(() => {
+                trackEvent('share_success');
+            }).catch(() => {
+                // Fallback to clipboard
+                copyToClipboard(window.location.href);
+            });
+        } else {
+            copyToClipboard(window.location.href);
+        }
+    };
+    
+    // Clipboard utility
     function copyToClipboard(text) {
         if (navigator.clipboard) {
             navigator.clipboard.writeText(text).then(() => {
-                showNotification('Dirección copiada al portapapeles', 'success');
+                showNotification('Enlace copiado al portapapeles', 'success');
+                trackEvent('link_copied');
             });
         } else {
-            // Fallback for older browsers
+            // Fallback
             const textArea = document.createElement('textarea');
             textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
             document.body.appendChild(textArea);
             textArea.select();
             document.execCommand('copy');
             document.body.removeChild(textArea);
-            showNotification('Dirección copiada al portapapeles', 'success');
+            showNotification('Enlace copiado', 'success');
+            trackEvent('link_copied');
         }
     }
-    
-    console.log('🎉 ¡Página de boda de Isa & Jose cargada correctamente!');
-    console.log('💕 ¡Que vivan los novios!');
 });
 
-// Add some wedding-themed console messages
+// Console welcome message
 console.log(`
-    💕 ¡Bienvenido a la boda de Isa & Jose! 💕
-    📅 14 de Febrero de 2026
-    ⏰ Al mediodía
-    💒 ¡Te esperamos!
+💕 Boda Isa & Jose
+📅 14 de Febrero 2026
+⏰ Mediodía
+🎉 ¡Nos casamos!
 `);
-
-// Easter egg: Konami code for confetti
-let konamiCode = [];
-const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // Up, Up, Down, Down, Left, Right, Left, Right, B, A
-
-document.addEventListener('keydown', function(e) {
-    konamiCode.push(e.keyCode);
-    if (konamiCode.length > konamiSequence.length) {
-        konamiCode.shift();
-    }
-    
-    if (konamiCode.join(',') === konamiSequence.join(',')) {
-        createHeartConfetti();
-        showNotification('¡💕 ¡Felicidades por encontrar el código secreto! 💕!', 'success');
-    }
-});
-
-// Heart confetti effect
-function createHeartConfetti() {
-    for (let i = 0; i < 50; i++) {
-        setTimeout(() => {
-            const heart = document.createElement('div');
-            heart.innerHTML = '💕';
-            heart.style.cssText = `
-                position: fixed;
-                top: -10px;
-                left: ${Math.random() * 100}vw;
-                font-size: ${Math.random() * 20 + 15}px;
-                z-index: 9999;
-                pointer-events: none;
-                animation: fall ${Math.random() * 3 + 2}s linear forwards;
-            `;
-            
-            document.body.appendChild(heart);
-            
-            setTimeout(() => {
-                if (heart.parentNode) {
-                    heart.parentNode.removeChild(heart);
-                }
-            }, 5000);
-        }, i * 100);
-    }
-}
-
-// Add CSS for confetti animation
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes fall {
-        to {
-            transform: translateY(100vh) rotate(360deg);
-            opacity: 0;
-        }
-    }
-    
-    .animate-in {
-        animation: fadeInUp 0.6s ease-out forwards;
-    }
-`;
-document.head.appendChild(style);
