@@ -535,87 +535,49 @@ body {
     }
 }
 
-/* Floating Navigation Menu */
+/* Side Navigation Menu */
 .floating-nav {
     position: fixed;
-    right: 24px;
+    left: 24px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 1000;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-toggle {
-    width: 56px;
-    height: 56px;
-    background: #1a1a1a;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-}
-
-.nav-toggle:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-}
-
-.nav-toggle i {
-    color: white;
-    font-size: 18px;
-    transition: transform 0.3s ease;
-}
-
-.nav-menu.active ~ .nav-toggle i {
-    transform: rotate(90deg);
+    display: none; /* No necesitamos el botón toggle */
 }
 
 .nav-menu {
-    position: absolute;
-    right: 0;
-    bottom: 70px;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.nav-menu.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
 }
 
 .nav-item {
-    width: 48px;
-    height: 48px;
-    background: white;
-    border: 2px solid #f0f0f0;
-    border-radius: 50%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
     text-decoration: none;
     color: #666;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 120px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .nav-item:hover {
     background: #1a1a1a;
     color: white;
     border-color: #1a1a1a;
-    transform: scale(1.1);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transform: translateX(8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .nav-item.active {
@@ -626,83 +588,40 @@ body {
 
 .nav-item i {
     font-size: 16px;
-    z-index: 2;
+    width: 16px;
+    text-align: center;
 }
 
 .nav-item span {
-    position: absolute;
-    right: 60px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #1a1a1a;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
     white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    pointer-events: none;
-}
-
-.nav-item span::after {
-    content: '';
-    position: absolute;
-    left: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    border: 6px solid transparent;
-    border-left-color: #1a1a1a;
-}
-
-.nav-item:hover span {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(-50%) translateX(-8px);
-}
-
-/* Animación de entrada escalonada */
-.nav-menu.active .nav-item:nth-child(1) { animation-delay: 0.1s; }
-.nav-menu.active .nav-item:nth-child(2) { animation-delay: 0.15s; }
-.nav-menu.active .nav-item:nth-child(3) { animation-delay: 0.2s; }
-.nav-menu.active .nav-item:nth-child(4) { animation-delay: 0.25s; }
-
-.nav-menu.active .nav-item {
-    animation: slideInScale 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-@keyframes slideInScale {
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .floating-nav {
-        right: 16px;
+        left: 16px;
+    }
+    
+    .nav-item {
+        min-width: 110px;
+        padding: 10px 14px;
+        font-size: 13px;
     }
 }
 
 @media (max-width: 480px) {
     .floating-nav {
-        right: 12px;
-    }
-    
-    .nav-toggle {
-        width: 52px;
-        height: 52px;
+        left: 12px;
     }
     
     .nav-item {
-        width: 44px;
-        height: 44px;
+        min-width: 100px;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+    
+    .nav-item i {
+        font-size: 14px;
     }
 }
