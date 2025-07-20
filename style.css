@@ -1,0 +1,708 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: #fefefe;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Hero Section - Elegante y minimalista */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(0, 0, 0, 0.02) 0%, transparent 50%);
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.wedding-logo {
+    margin-bottom: 48px;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.wedding-logo img {
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.wedding-logo img:hover {
+    transform: scale(1.05);
+}
+
+.couple-names {
+    font-family: 'Libre Baskerville', 'Didot', 'Times New Roman', serif;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-weight: 400;
+    color: #1a1a1a;
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+}
+
+.wedding-date {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.wedding-time {
+    font-size: 1rem;
+    color: #999;
+    margin-bottom: 48px;
+    font-weight: 300;
+}
+
+.heart-divider {
+    width: 60px;
+    height: 1px;
+    background: #ddd;
+    margin: 48px auto;
+    position: relative;
+}
+
+.heart-divider::after {
+    content: '♡';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fefefe;
+    padding: 0 16px;
+    color: #ccc;
+    font-size: 20px;
+}
+
+.invitation-text {
+    font-size: 1.125rem;
+    color: #666;
+    font-weight: 300;
+    line-height: 1.7;
+    margin-top: 24px;
+}
+
+/* CTA Section - Prioridad máxima */
+.cta-section {
+    padding: 80px 0;
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 24px;
+    font-family: 'Libre Baskerville', 'Didot', 'Times New Roman', serif;
+}
+
+.cta-subtitle {
+    font-size: 1.125rem;
+    color: #ccc;
+    margin-bottom: 48px;
+    font-weight: 300;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.btn-primary {
+    background: white;
+    color: #1a1a1a;
+    padding: 18px 36px;
+    border: none;
+    border-radius: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-primary:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    padding: 18px 36px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-secondary:hover {
+    border-color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cta-note {
+    font-size: 0.875rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* Event Details - Grid limpio con background */
+.event-details {
+    padding: 100px 0;
+    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.92)),
+        url('attached_assets/MG_2369_1753023598180.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.event-details::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(255, 255, 255, 0.1) 100%);
+    pointer-events: none;
+}
+
+.section-title {
+    font-family: 'Libre Baskerville', 'Didot', 'Times New Roman', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 80px;
+    color: #1a1a1a;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 48px;
+    margin-bottom: 80px;
+}
+
+.detail-card {
+    background: white;
+    padding: 48px 32px;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.detail-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.detail-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 50%;
+    color: #666;
+    font-size: 20px;
+}
+
+.detail-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+}
+
+.detail-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.detail-card .highlight {
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 16px;
+    padding: 8px 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.map-link:hover {
+    border-bottom-color: #1a1a1a;
+}
+
+/* Timeline - Minimalista */
+.schedule-section {
+    padding: 100px 0;
+    background: white;
+}
+
+.timeline {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.timeline-time {
+    font-family: 'Libre Baskerville', 'Didot', 'Times New Roman', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    min-width: 120px;
+    text-align: right;
+}
+
+.timeline-content h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+}
+
+.timeline-content p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Footer minimalista */
+.footer {
+    padding: 60px 0;
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.footer-names {
+    font-family: 'Libre Baskerville', 'Didot', 'Times New Roman', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.footer-date {
+    color: #999;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .hero {
+        padding: 40px 0;
+    }
+
+    .wedding-logo {
+        margin-bottom: 32px;
+    }
+
+    .wedding-logo img {
+        max-width: 150px;
+    }
+
+    .couple-names {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+        margin-bottom: 24px;
+    }
+
+    .cta-section {
+        padding: 60px 0;
+    }
+
+    .cta-title {
+        font-size: 2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    .event-details,
+    .schedule-section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 60px;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 60px;
+    }
+
+    .detail-card {
+        padding: 32px 24px;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .timeline-time {
+        text-align: center;
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 16px 24px;
+        font-size: 0.875rem;
+    }
+
+    .detail-card {
+        padding: 24px 20px;
+    }
+}
+
+/* Animaciones sutiles */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.detail-card,
+.timeline-item {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Loading states para los botones */
+.btn-loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.btn-loading::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 8px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Focus states para accesibilidad */
+.btn-primary:focus,
+.btn-secondary:focus,
+.map-link:focus {
+    outline: 2px solid #1a1a1a;
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .cta-section {
+        background: white;
+        color: black;
+    }
+
+    .footer {
+        background: white;
+        color: black;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        border: 1px solid black;
+        background: white;
+        color: black;
+    }
+}
+
+/* Floating Navigation Menu */
+.floating-nav {
+    position: fixed;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-toggle {
+    width: 56px;
+    height: 56px;
+    background: #1a1a1a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.nav-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.nav-toggle i {
+    color: white;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.nav-menu.active ~ .nav-toggle i {
+    transform: rotate(90deg);
+}
+
+.nav-menu {
+    position: absolute;
+    right: 0;
+    bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-item {
+    width: 48px;
+    height: 48px;
+    background: white;
+    border: 2px solid #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #666;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-item:hover {
+    background: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
+    transform: scale(1.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.nav-item.active {
+    background: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
+}
+
+.nav-item i {
+    font-size: 16px;
+    z-index: 2;
+}
+
+.nav-item span {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #1a1a1a;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.nav-item span::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: #1a1a1a;
+}
+
+.nav-item:hover span {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(-8px);
+}
+
+/* Animación de entrada escalonada */
+.nav-menu.active .nav-item:nth-child(1) { animation-delay: 0.1s; }
+.nav-menu.active .nav-item:nth-child(2) { animation-delay: 0.15s; }
+.nav-menu.active .nav-item:nth-child(3) { animation-delay: 0.2s; }
+.nav-menu.active .nav-item:nth-child(4) { animation-delay: 0.25s; }
+
+.nav-menu.active .nav-item {
+    animation: slideInScale 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideInScale {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .floating-nav {
+        right: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-nav {
+        right: 12px;
+    }
+    
+    .nav-toggle {
+        width: 52px;
+        height: 52px;
+    }
+    
+    .nav-item {
+        width: 44px;
+        height: 44px;
+    }
+}
