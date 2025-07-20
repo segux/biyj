@@ -232,6 +232,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
+                
+                // Validar que el targetId es válido
+                if (!targetId || targetId === '#') {
+                    console.warn('Invalid target ID:', targetId);
+                    return;
+                }
+                
                 const targetSection = document.querySelector(targetId);
                 
                 if (targetSection) {
@@ -249,6 +256,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     // Track navigation
                     trackEvent('nav_click', { section: this.dataset.section });
+                } else {
+                    console.warn('Target section not found:', targetId);
                 }
             });
         });
