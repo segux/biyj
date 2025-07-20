@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const CONFIG = {
         GOOGLE_FORM_URL: 'https://forms.google.com/your-form-id', // Replace with actual form
         SPOTIFY_PLAYLIST_URL: 'https://open.spotify.com/playlist/your-playlist-id', // Replace with actual playlist
-        CEREMONY_ADDRESS: 'Iglesia de San Valentín, Calle de los Enamorados, 123, Madrid, España',
-        CELEBRATION_ADDRESS: 'Restaurante El Jardín del Amor, Plaza de los Novios, 45, Madrid, España'
+        CEREMONY_ADDRESS: 'Torre Gallen, Burriana, Castellón, España',
+        CELEBRATION_ADDRESS: 'Torre Gallen, Burriana, Castellón, España'
     };
     
     // DOM Elements
