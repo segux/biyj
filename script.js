@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const targetId = this.getAttribute('href');
                 
                 // Validar que el targetId es válido
-                if (!targetId || targetId === '#' || targetId.length <= 1) {
+                if (!targetId || targetId === '#' || targetId.length <= 1 || !targetId.startsWith('#')) {
                     console.warn('Invalid target ID:', targetId);
                     return;
                 }
