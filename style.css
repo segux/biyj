@@ -1,4 +1,3 @@
-
 /* Reset and base styles */
 * {
     margin: 0;
@@ -205,8 +204,8 @@ body {
 /* Event Details - Grid limpio con background */
 .event-details {
     padding: 100px 0;
-    background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), 
-                url('attached_assets/MG_2369_1753023598180.jpg');
+    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.92)),
+        url('attached_assets/MG_2369_1753023598180.jpg');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -381,70 +380,70 @@ body {
     .container {
         padding: 0 20px;
     }
-    
+
     .hero {
         padding: 40px 0;
     }
-    
+
     .wedding-logo {
         margin-bottom: 32px;
     }
-    
+
     .wedding-logo img {
         max-width: 150px;
     }
-    
+
     .couple-names {
         font-size: clamp(2.5rem, 12vw, 4rem);
         margin-bottom: 24px;
     }
-    
+
     .cta-section {
         padding: 60px 0;
     }
-    
+
     .cta-title {
         font-size: 2rem;
     }
-    
+
     .cta-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .btn-primary,
     .btn-secondary {
         width: 100%;
         max-width: 280px;
         justify-content: center;
     }
-    
+
     .event-details,
     .schedule-section {
         padding: 60px 0;
     }
-    
+
     .section-title {
         font-size: 2rem;
         margin-bottom: 60px;
     }
-    
+
     .details-grid {
         grid-template-columns: 1fr;
         gap: 32px;
         margin-bottom: 60px;
     }
-    
+
     .detail-card {
         padding: 32px 24px;
     }
-    
+
     .timeline-item {
         flex-direction: column;
         gap: 16px;
         text-align: center;
     }
-    
+
     .timeline-time {
         text-align: center;
         min-width: auto;
@@ -455,13 +454,13 @@ body {
     .container {
         padding: 0 16px;
     }
-    
+
     .btn-primary,
     .btn-secondary {
         padding: 16px 24px;
         font-size: 0.875rem;
     }
-    
+
     .detail-card {
         padding: 24px 20px;
     }
@@ -473,6 +472,7 @@ body {
         opacity: 0;
         transform: translateY(40px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -521,12 +521,12 @@ body {
         background: white;
         color: black;
     }
-    
+
     .footer {
         background: white;
         color: black;
     }
-    
+
     .btn-primary,
     .btn-secondary {
         border: 1px solid black;
