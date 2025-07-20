@@ -66,7 +66,7 @@ body {
 }
 
 .couple-names {
-    font-family: 'Libre Baskerville', 'Didot', 'Times New Roman', serif;
+    font-family: 'Didot', 'Times New Roman', serif;
     font-size: clamp(3.5rem, 8vw, 6rem);
     font-weight: 400;
     color: #1a1a1a;
@@ -131,7 +131,7 @@ body {
     font-size: 2.5rem;
     font-weight: 400;
     margin-bottom: 24px;
-    font-family: 'Libre Baskerville', 'Didot', 'Times New Roman', serif;
+    font-family: 'Didot', 'Times New Roman', serif;
 }
 
 .cta-subtitle {
@@ -224,7 +224,7 @@ body {
 }
 
 .section-title {
-    font-family: 'Libre Baskerville', 'Didot', 'Times New Roman', serif;
+    font-family: 'Didot', 'Times New Roman', serif;
     font-size: 2.5rem;
     font-weight: 400;
     text-align: center;
@@ -368,7 +368,7 @@ body {
 }
 
 .timeline-time {
-    font-family: 'Libre Baskerville', 'Didot', 'Times New Roman', serif;
+    font-family: 'Didot', 'Times New Roman', serif;
     font-size: 1.5rem;
     font-weight: 400;
     color: #1a1a1a;
@@ -402,7 +402,7 @@ body {
 }
 
 .footer-names {
-    font-family: 'Libre Baskerville', 'Didot', 'Times New Roman', serif;
+    font-family: 'Didot', 'Times New Roman', serif;
     font-size: 1.5rem;
     font-weight: 400;
     margin-bottom: 16px;
@@ -585,7 +585,8 @@ body {
 }
 
 .nav-toggle {
-    display: none; /* No necesitamos el botón toggle */
+    display: none;
+    /* No necesitamos el botón toggle */
 }
 
 .nav-menu {
@@ -644,17 +645,17 @@ body {
         left: 50%;
         transform: translateX(-50%);
     }
-    
+
     .nav-menu {
         gap: 8px;
         padding: 10px 16px;
     }
-    
+
     .nav-item {
         padding: 8px 12px;
         font-size: 12px;
     }
-    
+
     .nav-item i {
         font-size: 13px;
     }
@@ -668,13 +669,13 @@ body {
         width: calc(100% - 32px);
         max-width: 350px;
     }
-    
+
     .nav-menu {
         gap: 6px;
         padding: 8px 12px;
         justify-content: space-around;
     }
-    
+
     .nav-item {
         padding: 6px 8px;
         font-size: 11px;
@@ -682,11 +683,12 @@ body {
         justify-content: center;
         min-width: 0;
     }
-    
+
     .nav-item span {
-        display: none; /* Solo iconos en móvil muy pequeño */
+        display: none;
+        /* Solo iconos en móvil muy pequeño */
     }
-    
+
     .nav-item i {
         font-size: 16px;
         width: auto;
