@@ -150,15 +150,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 4000);
     }
     
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Smooth scrolling for anchor links (solo para enlaces que no son del menú flotante)
+    document.querySelectorAll('a[href^="#"]:not(.nav-item)').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            
+            // Validar que el targetId es válido antes de usar querySelector
+            if (!targetId || targetId === '#' || targetId.length <= 1) {
+                return; // No hacer nada para enlaces vacíos
+            }
+            
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(targetId);
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const yOffset = -20;
+                const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                
+                window.scrollTo({
+                    top: y,
+                    behavior: 'smooth'
                 });
             }
         });
@@ -234,9 +244,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 const targetSection = document.querySelector(targetId);
                 
                 if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    // Usar offset para mejor posicionamiento
+                    const yOffset = -20; 
+                    const y = targetSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    
+                    window.scrollTo({
+                        top: y,
+                        behavior: 'smooth'
                     });
                     
                     // Update active state
@@ -251,12 +265,13 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Update active nav item on scroll
+        // Update active nav item on scroll - configuración mejorada
         const sections = document.querySelectorAll('section[id]');
         const observerNav = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const activeNav = document.querySelector(`.nav-item[href="#${entry.target.id}"]`);
+                    const sectionId = entry.target.id;
+                    const activeNav = document.querySelector(`.nav-item[href="#${sectionId}"]`);
                     if (activeNav) {
                         navItems.forEach(nav => nav.classList.remove('active'));
                         activeNav.classList.add('active');
@@ -264,11 +279,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }, {
-            threshold: 0.6,
-            rootMargin: '-10% 0px'
+            threshold: [0.3, 0.7], // Múltiples umbrales para mejor detección
+            rootMargin: '-15% 0px -15% 0px' // Márgenes simétricos
         });
         
-        sections.forEach(section => observerNav.observe(section));
+        sections.forEach(section => {
+            if (section.id) { // Solo observar secciones con ID válido
+                observerNav.observe(section);
+            }
+        });
     }
 
     // Bank Account Management
