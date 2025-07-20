@@ -26,7 +26,7 @@
 
 <body>
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="inicio">
     <div class="hero-content">
       <div class="wedding-logo">
         <img src="attached_assets/Logo_25mm.svg" alt="Logo Boda Isa & Jose" loading="lazy">
@@ -39,8 +39,33 @@
     </div>
   </section>
 
+  <!-- Menú de navegación flotante (móvil) -->
+  <nav class="floating-nav" id="floating-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-menu" id="nav-menu">
+      <a href="#inicio" class="nav-item" data-section="inicio">
+        <i class="fas fa-home"></i>
+        <span>Inicio</span>
+      </a>
+      <a href="#confirmar" class="nav-item" data-section="confirmar">
+        <i class="fas fa-check"></i>
+        <span>Confirmar</span>
+      </a>
+      <a href="#detalles" class="nav-item" data-section="detalles">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Detalles</span>
+      </a>
+      <a href="#cronograma" class="nav-item" data-section="cronograma">
+        <i class="fas fa-clock"></i>
+        <span>Horario</span>
+      </a>
+    </div>
+  </nav>
+
   <!-- Call to Action Principal -->
-  <section class="cta-section">
+  <section class="cta-section" id="confirmar">
     <div class="container">
       <h2 class="cta-title">Tu confirmación es importante</h2>
       <p class="cta-subtitle">Por favor, confirma tu asistencia antes del 1 de enero de 2026</p>
@@ -61,7 +86,7 @@
   </section>
 
   <!-- Detalles del Evento -->
-  <section class="event-details">
+  <section class="event-details" id="detalles">
     <div class="container">
       <h2 class="section-title">Detalles del Evento</h2>
 
@@ -105,7 +130,7 @@
   </section>
 
   <!-- Cronograma -->
-  <section class="schedule-section">
+  <section class="schedule-section" id="cronograma">
     <div class="container">
       <h2 class="section-title">Cronograma</h2>
 

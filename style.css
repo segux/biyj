@@ -534,3 +534,38 @@ body {
         color: black;
     }
 }
+
+/* Mobile Navigation Menu */
+@media (max-width: 768px) {
+    .mobile-nav {
+        position: fixed;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .mobile-nav ul {
+        list-style: none;
+    }
+
+    .mobile-nav li {
+        margin: 5px 0;
+    }
+
+    .mobile-nav a {
+        display: block;
+        text-decoration: none;
+        color: #333;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .mobile-nav a:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+}

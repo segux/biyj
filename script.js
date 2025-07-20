@@ -205,6 +205,74 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Images optimized for performance');
     }
     
+    // Floating navigation menu
+    function initFloatingNav() {
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navItems = document.querySelectorAll('.nav-item');
+        
+        if (!navToggle || !navMenu) return;
+        
+        // Toggle menu
+        navToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+        
+        // Handle navigation clicks
+        navItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Update active state
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Close menu
+                    navMenu.classList.remove('active');
+                    
+                    // Track navigation
+                    trackEvent('nav_click', { section: this.dataset.section });
+                }
+            });
+        });
+        
+        // Update active nav item on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const observerNav = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeNav = document.querySelector(`.nav-item[href="#${entry.target.id}"]`);
+                    if (activeNav) {
+                        navItems.forEach(nav => nav.classList.remove('active'));
+                        activeNav.classList.add('active');
+                    }
+                }
+            });
+        }, {
+            threshold: 0.6,
+            rootMargin: '-10% 0px'
+        });
+        
+        sections.forEach(section => observerNav.observe(section));
+    }
+
     // Initialize
     function init() {
         console.log('💕 Wedding landing page initialized');
@@ -215,6 +283,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Optimize performance
         optimizeImages();
+        
+        // Initialize floating navigation
+        initFloatingNav();
     }
     
     // Run initialization
