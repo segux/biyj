@@ -1,16 +1,155 @@
+
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda Isa & Jose - 14 de Febrero 2026</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
-  Hello world
-  <script src="script.js"></script>
-</body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="couple-names">Isa & Jose</h1>
+            <p class="wedding-date">14 de Febrero 2026</p>
+            <p class="wedding-time">Al mediodía</p>
+            <div class="heart-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+            <p class="invitation-text">Nos casamos y queremos celebrarlo contigo</p>
+        </div>
+    </section>
 
+    <!-- Main Information -->
+    <section class="main-info">
+        <div class="container">
+            <h2><i class="fas fa-calendar-alt"></i> Información del Evento</h2>
+            
+            <div class="info-card">
+                <h3><i class="fas fa-clock"></i> Fecha y Hora</h3>
+                <p><strong>Viernes, 14 de Febrero de 2026</strong></p>
+                <p><strong>12:00 PM (Mediodía)</strong></p>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fas fa-map-marker-alt"></i> Lugar de la Ceremonia</h3>
+                <p><strong>Iglesia de San Valentín</strong></p>
+                <p>Calle de los Enamorados, 123</p>
+                <p>Madrid, España</p>
+                <button class="map-btn" onclick="openMap()">
+                    <i class="fas fa-directions"></i> Ver en Mapa
+                </button>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fas fa-utensils"></i> Celebración</h3>
+                <p><strong>Restaurante El Jardín del Amor</strong></p>
+                <p>Plaza de los Novios, 45</p>
+                <p>Madrid, España</p>
+                <p><em>Después de la ceremonia</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section (Priority) -->
+    <section class="rsvp-section">
+        <div class="container">
+            <h2><i class="fas fa-envelope-heart"></i> Confirmación de Asistencia</h2>
+            <p class="rsvp-text">Por favor, confirma tu asistencia antes del 1 de enero de 2026</p>
+            <a href="#" class="rsvp-btn" id="rsvp-btn">
+                <i class="fas fa-check-circle"></i>
+                Confirmar Asistencia
+            </a>
+            <p class="rsvp-note">¡Tu presencia es el mejor regalo!</p>
+        </div>
+    </section>
+
+    <!-- Wedding Schedule -->
+    <section class="schedule">
+        <div class="container">
+            <h2><i class="fas fa-list-alt"></i> Plan de la Boda</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">11:30 AM</div>
+                    <div class="timeline-content">
+                        <h4>Llegada de invitados</h4>
+                        <p>Recepción en la iglesia</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">12:00 PM</div>
+                    <div class="timeline-content">
+                        <h4>Ceremonia religiosa</h4>
+                        <p>Iglesia de San Valentín</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">1:00 PM</div>
+                    <div class="timeline-content">
+                        <h4>Sesión de fotos</h4>
+                        <p>Jardines de la iglesia</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">2:00 PM</div>
+                    <div class="timeline-content">
+                        <h4>Cóctel de bienvenida</h4>
+                        <p>Restaurante El Jardín del Amor</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">3:30 PM</div>
+                    <div class="timeline-content">
+                        <h4>Almuerzo de celebración</h4>
+                        <p>Menú especial de San Valentín</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">6:00 PM</div>
+                    <div class="timeline-content">
+                        <h4>Fiesta y baile</h4>
+                        <p>¡Que comience la celebración!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section class="music-section">
+        <div class="container">
+            <h2><i class="fas fa-music"></i> Música de la Celebración</h2>
+            <p class="music-text">Ayúdanos a crear la playlist perfecta para nuestra boda</p>
+            <a href="#" class="music-btn" id="music-btn">
+                <i class="fab fa-spotify"></i>
+                Añadir Música a Spotify
+            </a>
+            <p class="music-note">Comparte tus canciones favoritas con nosotros</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">Con amor, Isa & Jose</p>
+            <div class="footer-hearts">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+            </div>
+            <p class="footer-date">14.02.2026</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
