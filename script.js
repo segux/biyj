@@ -207,10 +207,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Floating navigation menu
     function initFloatingNav() {
+        const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
         const navItems = document.querySelectorAll('.nav-item');
         
-        if (!navMenu) return;
+        if (!navToggle || !navMenu) return;
+        
+        // Toggle menu
+        navToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
         
         // Handle navigation clicks
         navItems.forEach(item => {
@@ -236,6 +250,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Update active state
                     navItems.forEach(nav => nav.classList.remove('active'));
                     this.classList.add('active');
+                    
+                    // Close menu
+                    navMenu.classList.remove('active');
                     
                     // Track navigation
                     trackEvent('nav_click', { section: this.dataset.section });
