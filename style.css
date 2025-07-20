@@ -9,8 +9,8 @@
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background: linear-gradient(135deg, #ffeef3 0%, #fff5f7 100%);
+    color: #2c2c2c;
+    background: linear-gradient(135deg, #f8f6f3 0%, #faf9f7 100%);
 }
 
 .container {
@@ -22,8 +22,8 @@ body {
 /* Hero Section */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(rgba(255, 182, 193, 0.8), rgba(255, 105, 180, 0.8)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hearts" patternUnits="userSpaceOnUse" width="20" height="20"><path d="M10,6 C10,3 7,1 4,4 C1,1 -2,3 -2,6 C-2,10 10,18 10,18 C10,18 22,10 22,6 C22,3 19,1 16,4 C13,1 10,3 10,6 Z" fill="%23ffb6c1" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23hearts)"/></svg>') center/cover;
+    background: linear-gradient(rgba(139, 69, 19, 0.85), rgba(101, 67, 33, 0.85)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="elegant" patternUnits="userSpaceOnUse" width="40" height="40"><circle cx="20" cy="20" r="1" fill="%23d4af37" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23elegant)"/></svg>') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,163 +33,205 @@ body {
 
 .hero-content {
     background: rgba(255, 255, 255, 0.95);
-    padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
+    padding: 50px 40px;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(101, 67, 33, 0.2);
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 182, 193, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .couple-names {
     font-family: 'Dancing Script', cursive;
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 700;
-    color: #d63384;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(214, 51, 132, 0.3);
+    color: #8b4513;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.1);
+    letter-spacing: 2px;
 }
 
 .wedding-date {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #c2185b;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #654321;
     margin-bottom: 8px;
+    letter-spacing: 1px;
 }
 
 .wedding-time {
-    font-size: 1.2rem;
-    color: #ad1457;
-    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #8b7355;
+    margin-bottom: 25px;
+    font-weight: 300;
 }
 
 .heart-icon {
-    font-size: 2rem;
-    color: #ff6b96;
-    margin: 20px 0;
-    animation: heartbeat 2s ease-in-out infinite;
+    font-size: 1.8rem;
+    color: #d4af37;
+    margin: 25px 0;
+    animation: gentleGlow 3s ease-in-out infinite;
 }
 
-@keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+@keyframes gentleGlow {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
 }
 
 .invitation-text {
     font-size: 1.1rem;
     color: #666;
     font-style: italic;
-    margin-top: 15px;
+    margin-top: 20px;
+    font-weight: 300;
 }
 
 /* Main sections */
 section {
-    padding: 60px 0;
+    padding: 70px 0;
 }
 
 h2 {
     font-family: 'Dancing Script', cursive;
-    font-size: 2.5rem;
-    color: #d63384;
+    font-size: 2.8rem;
+    color: #8b4513;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    font-weight: 400;
 }
 
 h2 i {
-    margin-right: 10px;
-    color: #ff6b96;
+    margin-right: 15px;
+    color: #d4af37;
 }
 
 /* Info cards */
 .info-card {
     background: white;
-    padding: 30px;
-    margin-bottom: 25px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(214, 51, 132, 0.1);
-    border: 1px solid rgba(255, 182, 193, 0.3);
+    padding: 35px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(139, 69, 19, 0.12);
 }
 
 .info-card h3 {
-    font-size: 1.3rem;
-    color: #c2185b;
-    margin-bottom: 15px;
+    font-size: 1.4rem;
+    color: #654321;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
+    font-weight: 600;
 }
 
 .info-card h3 i {
-    margin-right: 10px;
-    color: #ff6b96;
+    margin-right: 12px;
+    color: #d4af37;
+    font-size: 1.2rem;
 }
 
 .info-card p {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: #555;
+    line-height: 1.7;
+}
+
+.info-card p strong {
+    color: #8b4513;
 }
 
 .map-btn {
-    background: linear-gradient(45deg, #ff6b96, #d63384);
+    background: linear-gradient(45deg, #d4af37, #b8941f);
     color: white;
     border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    font-size: 1rem;
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-size: 0.95rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 15px;
+    margin-top: 20px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 .map-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(214, 51, 132, 0.4);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+    background: linear-gradient(45deg, #b8941f, #d4af37);
 }
 
 /* RSVP Section - Priority styling */
 .rsvp-section {
-    background: linear-gradient(135deg, #ff6b96, #d63384);
+    background: linear-gradient(135deg, #8b4513, #654321);
     color: white;
     text-align: center;
+    position: relative;
+}
+
+.rsvp-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="rsvp-pattern" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="0.5" fill="%23d4af37" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23rsvp-pattern)"/></svg>');
+}
+
+.rsvp-section .container {
+    position: relative;
+    z-index: 2;
 }
 
 .rsvp-section h2 {
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .rsvp-text {
     font-size: 1.2rem;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     opacity: 0.95;
+    font-weight: 300;
 }
 
 .rsvp-btn {
     display: inline-block;
-    background: white;
-    color: #d63384;
-    padding: 18px 40px;
-    border-radius: 50px;
+    background: #d4af37;
+    color: white;
+    padding: 20px 45px;
+    border-radius: 6px;
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    margin: 20px 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    margin: 25px 0;
+    letter-spacing: 0.5px;
+    border: 2px solid transparent;
 }
 
 .rsvp-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    background: #f8f9fa;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    background: #b8941f;
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .rsvp-btn i {
-    margin-right: 10px;
+    margin-right: 12px;
 }
 
 .rsvp-note {
     font-style: italic;
     opacity: 0.9;
-    margin-top: 15px;
+    margin-top: 20px;
+    font-weight: 300;
 }
 
 /* Timeline */
@@ -205,75 +247,81 @@ h2 i {
     left: 20px;
     top: 0;
     bottom: 0;
-    width: 3px;
-    background: linear-gradient(to bottom, #ff6b96, #d63384);
-    border-radius: 2px;
+    width: 2px;
+    background: linear-gradient(to bottom, #d4af37, #8b4513);
+    border-radius: 1px;
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 30px;
-    padding-left: 60px;
+    margin-bottom: 35px;
+    padding-left: 65px;
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: 8px;
-    top: 5px;
-    width: 25px;
-    height: 25px;
-    background: #ff6b96;
+    left: 11px;
+    top: 8px;
+    width: 18px;
+    height: 18px;
+    background: #d4af37;
     border-radius: 50%;
     border: 3px solid white;
-    box-shadow: 0 0 0 3px #ff6b96;
+    box-shadow: 0 0 0 2px #d4af37;
 }
 
 .timeline-time {
     font-weight: 600;
-    color: #d63384;
+    color: #8b4513;
     font-size: 1.1rem;
     margin-bottom: 8px;
+    letter-spacing: 0.5px;
 }
 
 .timeline-content h4 {
-    color: #c2185b;
+    color: #654321;
     font-size: 1.2rem;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-weight: 600;
 }
 
 .timeline-content p {
     color: #666;
+    font-weight: 300;
 }
 
 /* Music Section */
 .music-section {
-    background: #f8f9fa;
+    background: #faf9f7;
     text-align: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
 }
 
 .music-text {
     font-size: 1.2rem;
     color: #666;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
+    font-weight: 300;
 }
 
 .music-btn {
     display: inline-block;
     background: #1db954;
     color: white;
-    padding: 15px 35px;
-    border-radius: 50px;
+    padding: 16px 40px;
+    border-radius: 6px;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(29, 185, 84, 0.3);
+    box-shadow: 0 6px 20px rgba(29, 185, 84, 0.25);
+    letter-spacing: 0.5px;
 }
 
 .music-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 35px rgba(29, 185, 84, 0.4);
+    box-shadow: 0 10px 30px rgba(29, 185, 84, 0.35);
     background: #1ed760;
 }
 
@@ -282,66 +330,70 @@ h2 i {
 }
 
 .music-note {
-    margin-top: 20px;
+    margin-top: 25px;
     color: #666;
     font-style: italic;
+    font-weight: 300;
 }
 
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, #d63384, #c2185b);
+    background: linear-gradient(135deg, #654321, #8b4513);
     color: white;
     text-align: center;
-    padding: 40px 0;
+    padding: 50px 0;
 }
 
 .footer-text {
     font-family: 'Dancing Script', cursive;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 400;
 }
 
 .footer-hearts {
-    font-size: 1.5rem;
-    margin: 20px 0;
+    font-size: 1.4rem;
+    margin: 25px 0;
+    color: #d4af37;
 }
 
 .footer-hearts i {
-    margin: 0 10px;
-    animation: heartbeat 2s ease-in-out infinite;
+    margin: 0 15px;
+    animation: gentleGlow 3s ease-in-out infinite;
 }
 
 .footer-hearts i:nth-child(2) {
-    animation-delay: 0.3s;
+    animation-delay: 0.5s;
 }
 
 .footer-hearts i:nth-child(3) {
-    animation-delay: 0.6s;
+    animation-delay: 1s;
 }
 
 .footer-date {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 300;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    opacity: 0.9;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-content {
-        padding: 30px 20px;
+        padding: 35px 25px;
         margin: 20px;
     }
     
     .couple-names {
-        font-size: 2.8rem;
+        font-size: 3rem;
     }
     
     .wedding-date {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     
     h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
     
     .container {
@@ -349,7 +401,7 @@ h2 i {
     }
     
     .info-card {
-        padding: 20px;
+        padding: 25px;
     }
     
     .timeline::before {
@@ -357,48 +409,52 @@ h2 i {
     }
     
     .timeline-item {
-        padding-left: 50px;
+        padding-left: 55px;
     }
     
     .timeline-item::before {
-        left: 3px;
-        width: 20px;
-        height: 20px;
+        left: 6px;
+        width: 16px;
+        height: 16px;
     }
     
     .rsvp-btn {
-        padding: 15px 30px;
+        padding: 16px 35px;
         font-size: 1.1rem;
     }
 }
 
 @media (max-width: 480px) {
     .couple-names {
-        font-size: 2.3rem;
+        font-size: 2.5rem;
     }
     
     .hero-content {
-        padding: 25px 15px;
+        padding: 30px 20px;
     }
     
     section {
-        padding: 40px 0;
+        padding: 50px 0;
     }
     
     .info-card {
-        padding: 15px;
+        padding: 20px;
     }
     
     .rsvp-btn {
-        padding: 12px 25px;
+        padding: 14px 30px;
         font-size: 1rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
     }
 }
 
 /* Animations and effects */
 @media (prefers-reduced-motion: no-preference) {
     .info-card, .timeline-item {
-        animation: fadeInUp 0.6s ease-out;
+        animation: fadeInUp 0.8s ease-out;
     }
     
     .info-card:nth-child(even) {
@@ -438,4 +494,24 @@ h2 i {
         background: white;
         color: black;
     }
+}
+
+/* Additional elegant touches */
+.info-card p em {
+    color: #8b7355;
+    font-style: italic;
+}
+
+.timeline-content {
+    background: rgba(248, 246, 243, 0.5);
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 3px solid #d4af37;
+}
+
+/* Subtle hover effects */
+.timeline-item:hover .timeline-content {
+    background: rgba(248, 246, 243, 0.8);
+    transform: translateX(5px);
+    transition: all 0.3s ease;
 }
