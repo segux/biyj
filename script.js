@@ -7,12 +7,19 @@ document.addEventListener('DOMContentLoaded', function() {
         GOOGLE_FORM_URL: 'https://forms.google.com/your-form-id', // Replace with actual form
         SPOTIFY_PLAYLIST_URL: 'https://open.spotify.com/playlist/your-playlist-id', // Replace with actual playlist
         CEREMONY_ADDRESS: 'Torre Gallen, Burriana, Castellón, España',
-        CELEBRATION_ADDRESS: 'Torre Gallen, Burriana, Castellón, España'
+        CELEBRATION_ADDRESS: 'Torre Gallen, Burriana, Castellón, España',
+        BANK_ACCOUNTS: {
+            isa: 'ES1234 5678 9012 3456 7890 1234',
+            jose: 'ES9876 5432 1098 7654 3210 9876'
+        }
     };
     
     // DOM Elements
     const rsvpBtn = document.getElementById('rsvp-btn');
     const musicBtn = document.getElementById('music-btn');
+    
+    // Initialize bank account display
+    initBankAccount();
     
     // RSVP Button Handler
     if (rsvpBtn) {
@@ -264,6 +271,44 @@ document.addEventListener('DOMContentLoaded', function() {
         sections.forEach(section => observerNav.observe(section));
     }
 
+    // Bank Account Management
+    function initBankAccount() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const invParam = urlParams.get('inv');
+        
+        let selectedAccount;
+        
+        if (invParam && CONFIG.BANK_ACCOUNTS[invParam.toLowerCase()]) {
+            // Use specific account based on query param
+            selectedAccount = CONFIG.BANK_ACCOUNTS[invParam.toLowerCase()];
+            console.log(`Account selected for ${invParam}:`, selectedAccount);
+        } else {
+            // Random fallback if no valid param
+            const accounts = Object.keys(CONFIG.BANK_ACCOUNTS);
+            const randomAccount = accounts[Math.floor(Math.random() * accounts.length)];
+            selectedAccount = CONFIG.BANK_ACCOUNTS[randomAccount];
+            console.log(`Random fallback account (${randomAccount}):`, selectedAccount);
+        }
+        
+        // Update the bank number in the DOM
+        const bankNumberElement = document.querySelector('.bank-number');
+        if (bankNumberElement) {
+            bankNumberElement.textContent = selectedAccount;
+            
+            // Update note text
+            const bankNoteElement = document.querySelector('.bank-note');
+            if (bankNoteElement && invParam) {
+                bankNoteElement.textContent = `Número de cuenta personalizado para ${invParam}`;
+            }
+        }
+        
+        // Track which account was shown
+        trackEvent('bank_account_displayed', { 
+            param: invParam || 'random', 
+            account: selectedAccount.slice(-4) // Only last 4 digits for privacy
+        });
+    }
+    
     // Initialize
     function init() {
         console.log('💕 Wedding landing page initialized');
