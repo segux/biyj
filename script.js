@@ -257,18 +257,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function initGiftData() {
         const urlParams = new URLSearchParams(window.location.search);
-        const invParam = urlParams.get('inv');
+        let invParam = urlParams.get('inv');
 
         let selectedAccount;
+        let actualParam;
 
         if (invParam === 'a') {
             selectedAccount = CONFIG.GIFT_DATA.alpha;
+            actualParam = 'a';
         } else if (invParam === 'b') {
             selectedAccount = CONFIG.GIFT_DATA.beta;
+            actualParam = 'b';
         } else {
             // Sin query param, escoger aleatoriamente entre a o b
             const randomChoice = Math.random() < 0.5 ? 'a' : 'b';
             selectedAccount = randomChoice === 'a' ? CONFIG.GIFT_DATA.alpha : CONFIG.GIFT_DATA.beta;
+            actualParam = randomChoice;
+            console.log(`Random fallback account (${randomChoice}):`, decodeGiftInfo(selectedAccount));
         }
 
         const decodedAccount = decodeGiftInfo(selectedAccount);
@@ -279,12 +284,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const bankNoteElement = document.querySelector('.bank-note');
             if (bankNoteElement) {
-                bankNoteElement.textContent = `Número de cuenta para invitación ${invParam.toUpperCase()}`;
+                bankNoteElement.textContent = `Número de cuenta para invitación ${actualParam.toUpperCase()}`;
             }
         }
 
         trackEvent('bank_account_displayed', {
-            param: invParam || 'random',
+            param: actualParam,
             account: decodedAccount.slice(-4)
         });
     }
