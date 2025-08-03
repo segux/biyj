@@ -266,9 +266,10 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (invParam === 'b') {
             selectedAccount = CONFIG.GIFT_DATA.beta;
         } else {
-            const accounts = Object.keys(CONFIG.GIFT_DATA);
-            const randomAccount = accounts[Math.floor(Math.random() * accounts.length)];
-            selectedAccount = CONFIG.GIFT_DATA[randomAccount];
+            // Sin query param, escoger aleatoriamente entre a o b
+            const randomChoice = Math.random() < 0.5 ? 'a' : 'b';
+            selectedAccount = randomChoice === 'a' ? CONFIG.GIFT_DATA.alpha : CONFIG.GIFT_DATA.beta;
+            invParam = randomChoice; // Asignar el valor para tracking
         }
 
         const decodedAccount = decodeGiftInfo(selectedAccount);
@@ -278,15 +279,13 @@ document.addEventListener('DOMContentLoaded', function() {
             bankNumberElement.textContent = decodedAccount;
 
             const bankNoteElement = document.querySelector('.bank-note');
-            if (bankNoteElement && invParam) {
-                bankNoteElement.textContent = `Número de cuenta personalizado para ${invParam}`;
-            } else if (bankNoteElement) {
-                 bankNoteElement.textContent = `Número de cuenta`;
+            if (bankNoteElement) {
+                bankNoteElement.textContent = `Número de cuenta para invitación ${invParam.toUpperCase()}`;
             }
         }
 
         trackEvent('bank_account_displayed', {
-            param: invParam || 'random',
+            param: invParam,
             account: decodedAccount.slice(-4)
         });
     }
