@@ -261,9 +261,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let selectedAccount;
 
-        const accounts = Object.keys(CONFIG.GIFT_DATA);
-        const randomAccount = accounts[Math.floor(Math.random() * accounts.length)];
-        selectedAccount = CONFIG.GIFT_DATA[randomAccount];
+        if (invParam === 'a') {
+            selectedAccount = CONFIG.GIFT_DATA.alpha;
+        } else if (invParam === 'b') {
+            selectedAccount = CONFIG.GIFT_DATA.beta;
+        } else {
+            const accounts = Object.keys(CONFIG.GIFT_DATA);
+            const randomAccount = accounts[Math.floor(Math.random() * accounts.length)];
+            selectedAccount = CONFIG.GIFT_DATA[randomAccount];
+        }
+
         const decodedAccount = decodeGiftInfo(selectedAccount);
 
         const bankNumberElement = document.querySelector('.bank-number');
