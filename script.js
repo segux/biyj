@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
         CEREMONY_ADDRESS: 'Torre Gallen, Burriana, Castellón, España',
         CELEBRATION_ADDRESS: 'Torre Gallen, Burriana, Castellón, España',
         GIFT_DATA: {
-            alpha: 'RVMxMjM0IDU2NzggOTAxMiAzNDU2IDc4OTAgMTIzNA==',
-            beta: 'RVM5ODc2IDU0MzIgMTA5OCA3NjU0IDMyMTAgOTg3Ng=='
+            alpha: 'RVM4NSAyMTAwIDc3MzkgNzExMyAwMDM3IDUwMjk=',
+            beta: 'RVMzMiAwMTgyIDA1ODQgMzcwMiAwMTcyIDc1Mjc='
         }
     };
 
@@ -269,7 +269,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Sin query param, escoger aleatoriamente entre a o b
             const randomChoice = Math.random() < 0.5 ? 'a' : 'b';
             selectedAccount = randomChoice === 'a' ? CONFIG.GIFT_DATA.alpha : CONFIG.GIFT_DATA.beta;
-            invParam = randomChoice; // Asignar el valor para tracking
         }
 
         const decodedAccount = decodeGiftInfo(selectedAccount);
@@ -285,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         trackEvent('bank_account_displayed', {
-            param: invParam,
+            param: invParam || 'random',
             account: decodedAccount.slice(-4)
         });
     }
