@@ -328,6 +328,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
+    window.copyAccountNumber = function() {
+        const bankNumberElement = document.querySelector('.bank-number');
+        const copyBtn = document.querySelector('.copy-btn');
+        
+        if (bankNumberElement && copyBtn) {
+            const accountNumber = bankNumberElement.textContent.trim();
+            
+            copyToClipboard(accountNumber);
+            
+            // Animación visual de éxito
+            copyBtn.classList.add('copied');
+            const icon = copyBtn.querySelector('i');
+            const originalClass = icon.className;
+            icon.className = 'fas fa-check';
+            
+            setTimeout(() => {
+                copyBtn.classList.remove('copied');
+                icon.className = originalClass;
+            }, 2000);
+
+            trackEvent('account_number_copied', {
+                account: accountNumber.slice(-4)
+            });
+
+            showNotification('Número de cuenta copiado', 'success');
+        }
+    };
+
     function copyToClipboard(text) {
         if (navigator.clipboard) {
             navigator.clipboard.writeText(text).then(() => {
