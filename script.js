@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             window.open(CONFIG.SPOTIFY_PLAYLIST_URL, '_blank');
             showNotification('Playlist de Spotify abierta', 'success');
-            removeLoadingState(musicBtn, '<i class="fab fa-spotify"></i> Añadir Música');
+            removeLoadingState(musicBtn, '<i class="fab fa-spotify"></i> ¿Quieres añadir alguna canción para que suene en la fiesta?');
         }, 500);
     }
 
