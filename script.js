@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     const CONFIG = {
-        GOOGLE_FORM_URL: 'https://forms.google.com/your-form-id',
+        GOOGLE_FORM_URL: 'https://forms.gle/Km3qdNWRmA1cBvoW7',
         SPOTIFY_PLAYLIST_URL: 'https://open.spotify.com/playlist/1t53Gjg8kKEvH8qxuESdy5?si=3133ff310e424648&pt=a48d5fd66ebfe8fc0427be082ad2197a',
         CEREMONY_ADDRESS: 'Torre Gallen, Burriana, Castellón, España',
         CELEBRATION_ADDRESS: 'Torre Gallen, Burriana, Castellón, España',
